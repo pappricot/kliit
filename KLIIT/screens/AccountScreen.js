@@ -24,17 +24,39 @@ export default class AccountScreen extends React.Component {
         style={styles.container}
         contentContainerStyle={styles.contentContainer}
       >
+        {/* Header */}
         <View style={styles.headerWrapper}>
           <View>
             <Text style={styles.headerText}>Crystal</Text>
             <Text style={styles.headerText}>Adams</Text>
           </View>
           <View style={styles.imageStyle}>
-            <Text>Image</Text>
+            <View style={styles.innerImageStyle} />
           </View>
         </View>
+        {/* Body */}
         <View style={styles.optionsWrapper}>
-          <Text>1</Text>
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate("Settings");
+            }}
+          >
+            <Text>Account Settings</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate("Payment");
+            }}
+          >
+            <Text>Payments and Credits</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate("Legal");
+            }}
+          >
+            <Text>Terms and Policies</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.footerWrapper}>
           <Text>1</Text>
@@ -54,7 +76,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fafafa",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
     width: width
   },
@@ -77,6 +99,18 @@ const styles = StyleSheet.create({
   imageStyle: {
     backgroundColor: "#00267d",
     width: 100,
-    height: 100
+    height: 100,
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  innerImageStyle: {
+    backgroundColor: "white",
+    width: 80,
+    height: 80,
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 30
   }
 });

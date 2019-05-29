@@ -9,9 +9,15 @@ import TabBarIcon from "../components/TabBarIcon";
 import AccountScreen from "../screens/AccountScreen";
 import AskScreen from "../screens/AskScreen";
 import DiscussScreen from "../screens/DiscussScreen";
+import Settings from "../screens/accounts-screen/Settings";
+import Payment from "../screens/accounts-screen/Payment";
+import Legal from "../screens/accounts-screen/Legal";
 
 const AccountStack = createStackNavigator({
-  Account: AccountScreen
+  Account: AccountScreen,
+  Settings,
+  Payment,
+  Legal
 });
 
 AccountStack.navigationOptions = {
