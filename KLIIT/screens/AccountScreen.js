@@ -7,9 +7,10 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Dimensions
+  Dimensions,
+  List
 } from "react-native";
-import { WebBrowser } from "expo";
+import { WebBrowser, Icon } from "expo";
 
 import { MonoText } from "../components/StyledText";
 const width = Dimensions.get("window").width;
@@ -20,9 +21,9 @@ export default class AccountScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView
+      <View
         style={styles.container}
-        contentContainerStyle={styles.contentContainer}
+        // contentContainerStyle={styles.contentContainer}
       >
         {/* Header */}
         <View style={styles.headerWrapper}>
@@ -36,59 +37,95 @@ export default class AccountScreen extends React.Component {
         </View>
         {/* Body */}
         <View style={styles.optionsWrapper}>
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.navigate("Settings");
-            }}
-          >
-            <Text>Account Settings</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.navigate("Payment");
-            }}
-          >
-            <Text>Payments and Credits</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.navigate("Legal");
-            }}
-          >
-            <Text>Terms and Policies</Text>
-          </TouchableOpacity>
+          <View style={styles.optionWrapper}>
+            <TouchableOpacity
+              style={styles.accountOption}
+              onPress={() => {
+                this.props.navigation.navigate("Settings");
+              }}
+            >
+              <Text>Account Settings</Text>
+              <Icon.Ionicons
+                name={
+                  Platform.OS === "ios"
+                    ? `ios-arrow-forward`
+                    : "md-arrow-forward"
+                }
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.optionWrapper}>
+            <TouchableOpacity
+              style={styles.accountOption}
+              onPress={() => {
+                this.props.navigation.navigate("Payment");
+              }}
+            >
+              <Text>Payments and Credits</Text>
+              <Icon.Ionicons
+                name={
+                  Platform.OS === "ios"
+                    ? `ios-arrow-forward`
+                    : "md-arrow-forward"
+                }
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.optionWrapper}>
+            <TouchableOpacity
+              style={styles.accountOption}
+              onPress={() => {
+                this.props.navigation.navigate("Legal");
+              }}
+            >
+              <Text>Terms and Policies</Text>
+              <Icon.Ionicons
+                name={
+                  Platform.OS === "ios"
+                    ? `ios-arrow-forward`
+                    : "md-arrow-forward"
+                }
+              />
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.footerWrapper}>
-          <Text>1</Text>
+          <View style={styles.yellowCircle} />
+          <View style={styles.pinkCircle} />
+
+          <View style={styles.brownCircle} />
+
+          <View style={styles.blueCircle} />
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+    display: "flex",
     flex: 1,
     backgroundColor: "#fff",
-    flexDirection: "row"
+    width: width
   },
+  contentContainer: {},
   headerWrapper: {
     flex: 1,
     backgroundColor: "#fafafa",
     flexDirection: "row",
     justifyContent: "space-around",
-    alignItems: "center",
-    width: width
+    alignItems: "center"
   },
   optionsWrapper: {
     flex: 1,
-    backgroundColor: "pink",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    zIndex: 1,
+    backgroundColor: "white"
   },
   footerWrapper: {
     flex: 1,
-    backgroundColor: "blue",
     justifyContent: "center",
     alignItems: "center"
   },
@@ -112,5 +149,56 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginLeft: 30
+  },
+  optionWrapper: {
+    flex: 1,
+    borderBottomWidth: 1,
+    borderBottomColor: "#DFDEDE"
+  },
+  accountOption: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    width: width,
+    justifyContent: "space-between",
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  pinkCircle: {
+    position: "relative",
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    backgroundColor: "#fea9dc",
+    marginRight: 300
+  },
+  brownCircle: {
+    position: "relative",
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    backgroundColor: "#4a2324",
+    marginRight: 220,
+    marginTop: -50,
+    marginBottom: 230
+  },
+  yellowCircle: {
+    position: "relative",
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    backgroundColor: "#f8c51e",
+    marginLeft: 250,
+    marginBottom: -100
+  },
+  blueCircle: {
+    position: "absolute",
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    backgroundColor: "#00267d",
+    left: 320,
+    bottom: 50
   }
 });
