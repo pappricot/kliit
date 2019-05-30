@@ -96,6 +96,9 @@ export default class AccountScreen extends React.Component {
           <View style={styles.brownCircle} />
 
           <View style={styles.blueCircle} />
+          <TouchableOpacity style={styles.textSt}>
+            <Text style={styles.textStyle}>Log Out</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -200,5 +203,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#00267d",
     left: 320,
     bottom: 50
+  },
+  textSt: {
+    position: "absolute"
+  },
+  textStyle: {
+    color: "#dd3f24",
+    fontSize: 18
   }
 });
