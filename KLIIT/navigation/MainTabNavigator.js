@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform } from "react-native";
+import { Platform, Image, StyleSheet } from "react-native";
 import {
   createStackNavigator,
   createBottomTabNavigator
@@ -22,14 +22,16 @@ const AccountStack = createStackNavigator({
 
 AccountStack.navigationOptions = {
   tabBarLabel: "Account",
+  // tabBarIcon: (
+  //   <Image
+  //     style={{ width: 30, height: 30 }}
+  //     source={require("../assets/images/disabledCopy2x.png")}
+  //   />
+  // )
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === "ios"
-          ? `ios-person${focused ? "" : "-outline"}`
-          : "md-person"
-      }
+      name={Platform.OS === "ios" ? `ios-person` : "md-person"}
     />
   )
 };
@@ -40,6 +42,12 @@ const AskStack = createStackNavigator({
 
 AskStack.navigationOptions = {
   tabBarLabel: "Ask",
+  // tabBarIcon: (
+  //   <Image
+  //     style={{ width: 30, height: 30 }}
+  //     source={require("../assets/images/ask.png")}
+  //   />
+  // )
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -54,6 +62,7 @@ const DiscussStack = createStackNavigator({
 
 DiscussStack.navigationOptions = {
   tabBarLabel: "Discuss",
+  // tabBarIcon: <Image source={require("../assets/images/disabledCopy6.png")} />
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}

@@ -1,27 +1,49 @@
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
-import { ExpoLinksView } from "@expo/samples";
+import { ScrollView, StyleSheet, View, Text } from "react-native";
 
 export default class AskScreen extends React.Component {
   static navigationOptions = {
-    title: "Links"
+    header: null
   };
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-         * content, we just wanted to provide you with some helpful links */}
-        <ExpoLinksView />
+      <ScrollView contentContainerStyle={styles.containerSt}>
+        <View style={styles.headerWr}>
+          <Text>1</Text>
+        </View>
+        <View style={styles.questionWr}>
+          <Text>1</Text>
+        </View>
+        <View style={styles.resultWr}>
+          <Text>1</Text>
+        </View>
+        <View style={styles.previousQuetsionWR}>
+          <Text>1</Text>
+        </View>
       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  containerSt: {
+    flex: 1
+  },
+  headerWr: {
     flex: 1,
-    paddingTop: 15,
-    backgroundColor: "#fff"
+    backgroundColor: "pink"
+  },
+  questionWr: {
+    flex: 1,
+    backgroundColor: "green"
+  },
+  resultWr: {
+    flex: 1,
+    backgroundColor: "blue"
+  },
+  previousQuetsionWR: {
+    flex: 1,
+    backgroundColor: "grey"
   }
 });
