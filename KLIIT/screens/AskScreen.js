@@ -5,7 +5,8 @@ import {
   View,
   Text,
   TextInput,
-  Dimensions
+  Dimensions,
+  TouchableOpacity
 } from "react-native";
 import { QuestionInput } from "../screens/ask-screens/Input";
 const width = Dimensions.get("window").width;
@@ -40,16 +41,24 @@ export default class AskScreen extends React.Component {
         </View>
         {/* question */}
         <View style={styles.questionWr}>
-          <TextInput
-            style={styles.question}
-            multiline={true}
-            numberOfLines={4}
-            placeholder="Ask your question to choose from our network of experts!"
-            placeholderTextColor={"#a2a2a2"}
-            style={{ fontSize: 15, textAlign: "left" }}
-            onChangeText={text => this.setState({ text })}
-            value={this.state.text}
-          />
+          <View style={styles.question}>
+            <TextInput
+              multiline={true}
+              numberOfLines={4}
+              placeholder="Ask your question to choose from our network of experts!"
+              placeholderTextColor={"#a2a2a2"}
+              style={{
+                fontSize: 18,
+                textAlign: "left",
+                borderBottomStyle: "solid"
+              }}
+              onChangeText={text => this.setState({ text })}
+              value={this.state.text}
+            />
+          </View>
+          <TouchableOpacity style={styles.buttonWr}>
+            <Text style={styles.buttonText}>SHOW ME WHO CAN ANSWER!</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.resultWr}>
           <Text>1</Text>
@@ -68,7 +77,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fafafa"
   },
   headerWr: {
-    flex: 2.5
+    flex: 3
   },
   questionWr: {
     flex: 1,
@@ -76,9 +85,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginLeft: 20
-  },
-  question: {
-    textAlign: "center"
   },
   resultWr: {
     flex: 1,
@@ -119,5 +125,23 @@ const styles = StyleSheet.create({
   },
   placeholderStyle: {
     fontSize: 15
+  },
+  question: {
+    borderBottomWidth: 1,
+    borderBottomColor: "#a2a2a2",
+    paddingBottom: 10
+  },
+  buttonWr: {
+    marginTop: 20,
+    width: width - 50,
+    height: 40,
+    borderRadius: 15,
+    backgroundColor: "#7c8fbb",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  buttonText: {
+    color: "white",
+    textAlign: "center"
   }
 });
