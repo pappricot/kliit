@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { QuestionInput } from "../screens/ask-screens/Input";
 const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 export default class AskScreen extends React.Component {
   static navigationOptions = {
     header: null
@@ -18,62 +19,114 @@ export default class AskScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: ""
+      text: "",
+      screenHeight: 0
     };
   }
 
+  onContentSizeChange = (contentW, contentH) => {
+    this.setState({ screenHeight: contentH });
+  };
+
   render() {
+    const scrollEnabled = this.state.screenHeight > height;
     return (
-      <ScrollView contentContainerStyle={styles.containerSt}>
-        {/* header */}
-        <View style={styles.headerWr}>
-          <View style={styles.pinkCircle}>
-            <View style={styles.circleText}>
-              <Text style={styles.pinkCircleText}>
-                Hi <Text style={styles.red}>Crystal</Text>,
-              </Text>
-              <Text style={styles.pinkCircleText}>
-                what do you want to ask an expert?
-              </Text>
-              <Text style={styles.credits}>(20 credits)</Text>
+      <View style={{ height: height }}>
+        <ScrollView
+          contentContainerStyle={styles.containerSt}
+          // onContentSizeChange={this.onContentSizeChange}
+          // scrollEnabled={scrollEnabled}
+        >
+          {/* header */}
+          <View style={styles.headerWr}>
+            <View style={styles.pinkCircle}>
+              <View style={styles.circleText}>
+                <Text style={styles.pinkCircleText}>
+                  Hi <Text style={styles.red}>Crystal</Text>,
+                </Text>
+                <Text style={styles.pinkCircleText}>
+                  what do you want to ask an expert?
+                </Text>
+                <Text style={styles.credits}>(20 credits)</Text>
+              </View>
             </View>
           </View>
-        </View>
-        {/* question */}
-        <View style={styles.questionWr}>
-          <View style={styles.question}>
-            <TextInput
-              multiline={true}
-              numberOfLines={4}
-              placeholder="Ask your question to choose from our network of experts!"
-              placeholderTextColor={"#a2a2a2"}
-              style={{
-                fontSize: 18,
-                textAlign: "left",
-                borderBottomStyle: "solid"
-              }}
-              onChangeText={text => this.setState({ text })}
-              value={this.state.text}
-            />
+          {/* question */}
+          <View style={styles.questionWr}>
+            <View style={styles.question}>
+              <TextInput
+                multiline={true}
+                numberOfLines={4}
+                placeholder="Ask your question to choose from our network of experts!"
+                placeholderTextColor={"#a2a2a2"}
+                style={{
+                  fontSize: 18,
+                  textAlign: "left",
+                  borderBottomStyle: "solid"
+                }}
+                onChangeText={text => this.setState({ text })}
+                value={this.state.text}
+              />
+            </View>
+            <TouchableOpacity style={styles.buttonWr}>
+              <Text style={styles.buttonText}>SHOW ME WHO CAN ANSWER!</Text>
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity style={styles.buttonWr}>
-            <Text style={styles.buttonText}>SHOW ME WHO CAN ANSWER!</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.resultWr}>
-          <Text>1</Text>
-        </View>
-        <View style={styles.previousQuetsionWR}>
-          <Text>1</Text>
-        </View>
-      </ScrollView>
+          {/* result */}
+          <View style={styles.resultWr}>
+            <View style={styles.fav}>
+              <Text style={styles.titleFav}>My favorite experts</Text>
+            </View>
+            {/* will be a list array */}
+            <ScrollView horizontal style={styles.scrollExpert}>
+              <View style={styles.expertWr}>
+                <View style={styles.avatar}>
+                  <Text> Image </Text>
+                </View>
+                <Text style={styles.expert}>Name Last Name</Text>
+                <Text style={styles.expert2}>RN</Text>
+              </View>
+              <View style={styles.expertWr}>
+                <View style={styles.avatar}>
+                  <Text> Image </Text>
+                </View>
+                <Text style={styles.expert}>Name Last Name</Text>
+                <Text style={styles.expert2}>RN</Text>
+              </View>
+              <View style={styles.expertWr}>
+                <View style={styles.avatar}>
+                  <Text> Image </Text>
+                </View>
+                <Text style={styles.expert}>Name Last Name</Text>
+                <Text style={styles.expert2}>RN</Text>
+              </View>
+            </ScrollView>
+          </View>
+          {/* previous question */}
+          <View style={styles.previousQuetsionWR}>
+            <View style={styles.fav}>
+              <Text style={styles.titleFav}>My previous questions</Text>
+            </View>
+            <View style={styles.yellowBox}>
+              <Text>WHat does brown discharge mean?</Text>
+              <View>
+                <View>
+                  <Text>Image</Text>
+                </View>
+                <Text> Answered by Kim Jacobs, RN</Text>
+                <Text>04/10/18</Text>
+              </View>
+            </View>
+          </View>
+        </ScrollView>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   containerSt: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: "#fafafa"
   },
   headerWr: {
@@ -87,12 +140,13 @@ const styles = StyleSheet.create({
     marginLeft: 20
   },
   resultWr: {
-    flex: 1,
-    backgroundColor: "blue"
+    flex: 2,
+    top: 20
   },
   previousQuetsionWR: {
-    flex: 1,
-    backgroundColor: "grey"
+    flex: 2,
+    backgroundColor: "grey",
+    top: 50
   },
   pinkCircle: {
     justifyContent: "center",
@@ -143,5 +197,33 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "white",
     textAlign: "center"
+  },
+  avatar: {
+    backgroundColor: "pink",
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 10
+  },
+  fav: { paddingTop: 20, paddingBottom: 20, paddingLeft: 20 },
+  titleFav: {
+    fontSize: 20
+  },
+  expert: {
+    textAlign: "center",
+    color: "#aaaaaa"
+  },
+  expert2: {
+    textAlign: "center"
+  },
+  expertWr: {
+    paddingRight: 15
+  },
+  scrollExpert: { flexDirection: "row", paddingLeft: 20 },
+  yellowBox: {
+    width: width - 40,
+    backgroundColor: "#f8c51e"
   }
 });
