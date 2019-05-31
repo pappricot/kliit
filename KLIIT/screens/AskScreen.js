@@ -68,7 +68,10 @@ export default class AskScreen extends React.Component {
                 value={this.state.text}
               />
             </View>
-            <TouchableOpacity style={styles.buttonWr}>
+            <TouchableOpacity
+              style={styles.buttonWr}
+              onPress={() => this.props.navigation.navigate("ChooseExpert")}
+            >
               <Text style={styles.buttonText}>SHOW ME WHO CAN ANSWER!</Text>
             </TouchableOpacity>
           </View>
