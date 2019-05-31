@@ -37,10 +37,16 @@ AccountStack.navigationOptions = {
   )
 };
 
-const AskStack = createStackNavigator({
-  Ask: AskScreen,
-  ChooseExpert
-});
+const AskStack = createStackNavigator(
+  {
+    Ask: AskScreen,
+    ChooseExpert
+  },
+  {
+    headerMode: "none",
+    mode: "modal"
+  }
+);
 
 AskStack.navigationOptions = {
   tabBarLabel: "Ask",

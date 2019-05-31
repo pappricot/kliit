@@ -31,7 +31,7 @@ export default class AskScreen extends React.Component {
   render() {
     const scrollEnabled = this.state.screenHeight > height;
     return (
-      <View style={{ flex: 1 }}>
+      <View style={styles.main}>
         <ScrollView
           contentContainerStyle={styles.containerSt}
           // onContentSizeChange={this.onContentSizeChange}
@@ -130,6 +130,7 @@ export default class AskScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  main: { flex: 1 },
   containerSt: {
     flexGrow: 1,
     backgroundColor: "#fafafa"
