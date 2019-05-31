@@ -31,7 +31,7 @@ export default class AskScreen extends React.Component {
   render() {
     const scrollEnabled = this.state.screenHeight > height;
     return (
-      <View style={{ height: height }}>
+      <View style={{ flex: 1 }}>
         <ScrollView
           contentContainerStyle={styles.containerSt}
           // onContentSizeChange={this.onContentSizeChange}
@@ -108,13 +108,15 @@ export default class AskScreen extends React.Component {
               <Text style={styles.titleFav}>My previous questions</Text>
             </View>
             <View style={styles.yellowBox}>
-              <Text>WHat does brown discharge mean?</Text>
-              <View>
-                <View>
+              <Text style={styles.prevQ}>What does brown discharge mean?</Text>
+              <View style={styles.prevQInfo}>
+                <View style={[styles.avatar, styles.avatarPrevQ]}>
                   <Text>Image</Text>
                 </View>
-                <Text> Answered by Kim Jacobs, RN</Text>
-                <Text>04/10/18</Text>
+                <View>
+                  <Text> Answered by Kim Jacobs, RN</Text>
+                  <Text>04/10/18</Text>
+                </View>
               </View>
             </View>
           </View>
@@ -145,7 +147,6 @@ const styles = StyleSheet.create({
   },
   previousQuetsionWR: {
     flex: 2,
-    backgroundColor: "grey",
     top: 50
   },
   pinkCircle: {
@@ -207,6 +208,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 10
   },
+  avatarPrevQ: {
+    width: 50,
+    height: 50,
+    borderRadius: 25
+  },
   fav: { paddingTop: 20, paddingBottom: 20, paddingLeft: 20 },
   titleFav: {
     fontSize: 20
@@ -224,6 +230,22 @@ const styles = StyleSheet.create({
   scrollExpert: { flexDirection: "row", paddingLeft: 20 },
   yellowBox: {
     width: width - 40,
-    backgroundColor: "#f8c51e"
+    height: 100,
+    backgroundColor: "#f8c51e",
+    alignSelf: "center",
+    borderRadius: 15,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 150
+  },
+  prevQ: {
+    fontSize: 16,
+    paddingBottom: 8,
+    paddingTop: 5
+  },
+  prevQInfo: {
+    flexDirection: "row",
+    width: width - 70,
+    justifyContent: "space-around"
   }
 });
