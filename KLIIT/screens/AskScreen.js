@@ -9,8 +9,10 @@ import {
   TouchableOpacity
 } from "react-native";
 import { QuestionInput } from "../screens/ask-screens/Input";
+
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
+
 export default class AskScreen extends React.Component {
   static navigationOptions = {
     header: null
@@ -62,7 +64,8 @@ export default class AskScreen extends React.Component {
                 style={{
                   fontSize: 18,
                   textAlign: "left",
-                  borderBottomStyle: "solid"
+                  borderBottomStyle: "solid",
+                  fontFamily: "avenir"
                 }}
                 onChangeText={text => this.setState({ text })}
                 value={this.state.text}
@@ -164,26 +167,31 @@ const styles = StyleSheet.create({
     bottom: 80
   },
   circleText: {
-    width: 300
+    width: 300,
+    fontFamily: "montserrat"
   },
 
   pinkCircleText: {
     fontSize: 35,
     textAlign: "left",
     top: 30,
-    left: 45
+    left: 45,
+    fontFamily: "montserrat"
   },
   red: {
-    color: "#d92405"
+    color: "#d92405",
+    fontFamily: "montserrat"
   },
   credits: {
     color: "#00267d",
     textAlign: "center",
     top: 60,
-    paddingRight: 140
+    paddingRight: 140,
+    fontFamily: "avenir"
   },
   placeholderStyle: {
-    fontSize: 15
+    fontSize: 15,
+    fontFamily: "avenir"
   },
   question: {
     borderBottomWidth: 1,
@@ -201,7 +209,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "white",
-    textAlign: "center"
+    textAlign: "center",
+    fontFamily: "avenir"
   },
   avatar: {
     backgroundColor: "pink",
@@ -219,14 +228,17 @@ const styles = StyleSheet.create({
   },
   fav: { paddingTop: 20, paddingBottom: 20, paddingLeft: 20 },
   titleFav: {
-    fontSize: 20
+    fontSize: 20,
+    fontFamily: "avenir"
   },
   expert: {
     textAlign: "center",
-    color: "#aaaaaa"
+    color: "#aaaaaa",
+    fontFamily: "avenir"
   },
   expert2: {
-    textAlign: "center"
+    textAlign: "center",
+    fontFamily: "avenir"
   },
   expertWr: {
     paddingRight: 15
@@ -245,7 +257,8 @@ const styles = StyleSheet.create({
   prevQ: {
     fontSize: 16,
     paddingBottom: 8,
-    paddingTop: 5
+    paddingTop: 5,
+    fontFamily: "avenir"
   },
   prevQInfo: {
     flexDirection: "row",

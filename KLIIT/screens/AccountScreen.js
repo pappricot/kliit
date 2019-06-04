@@ -44,8 +44,10 @@ export default class AccountScreen extends React.Component {
                 this.props.navigation.navigate("Settings");
               }}
             >
-              <Text>Account Settings</Text>
+              <Text style={styles.optionTxt}>Account Settings</Text>
               <Icon.Ionicons
+                size={32}
+                color={"grey"}
                 name={
                   Platform.OS === "ios"
                     ? `ios-arrow-forward`
@@ -61,8 +63,10 @@ export default class AccountScreen extends React.Component {
                 this.props.navigation.navigate("Payment");
               }}
             >
-              <Text>Payments and Credits</Text>
+              <Text style={styles.optionTxt}>Payments and Credits</Text>
               <Icon.Ionicons
+                size={32}
+                color={"grey"}
                 name={
                   Platform.OS === "ios"
                     ? `ios-arrow-forward`
@@ -78,8 +82,10 @@ export default class AccountScreen extends React.Component {
                 this.props.navigation.navigate("Legal");
               }}
             >
-              <Text>Terms and Policies</Text>
+              <Text style={styles.optionTxt}>Terms and Policies</Text>
               <Icon.Ionicons
+                size={32}
+                color={"grey"}
                 name={
                   Platform.OS === "ios"
                     ? `ios-arrow-forward`
@@ -134,7 +140,8 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 36,
-    color: "#333333"
+    color: "#333333",
+    fontFamily: "montserrat"
   },
   imageStyle: {
     backgroundColor: "#00267d",
@@ -209,6 +216,10 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: "#dd3f24",
+    fontSize: 18
+  },
+  optionTxt: {
+    fontFamily: "avenir",
     fontSize: 18
   }
 });

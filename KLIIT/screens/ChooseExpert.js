@@ -36,9 +36,39 @@ export default class ChooseExpert extends React.Component {
   renderCard = (card, index) => {
     return (
       <View style={styles.card}>
-        <Text style={styles.text}>
+        {/* <Text style={styles.text}>
           {card} - {index}
-        </Text>
+        </Text> */}
+        <View style={styles.onlineWr}>
+          <Image
+            style={styles.online}
+            source={require("../assets/images/online.png")}
+          />
+          <Text style={styles.onlineStatus}> Online Now</Text>
+        </View>
+        <View style={styles.profileWr}>
+          <View style={styles.avatar}>
+            <Text> Image </Text>
+          </View>
+          <View>
+            <Text>Kim Jacobs</Text>
+            <Text>Registered Nurse</Text>
+            <Text> Stars</Text>
+          </View>
+        </View>
+        <View>
+          <Text>
+            Kim has 10 years of experience in women's healthcare. She graduated
+            from UCF College of Nursing
+          </Text>
+        </View>
+        <View>
+          <Text>Specialties</Text>
+          <View>
+            <Text>Period</Text>
+            <Text>Pregnancy</Text>
+          </View>
+        </View>
       </View>
     );
   };
@@ -172,7 +202,12 @@ export default class ChooseExpert extends React.Component {
           </Swiper>
         </View>
         <View style={styles.decisions}>
-          <Text>1</Text>
+          <TouchableOpacity style={styles.decisionButton1}>
+            <Text style={styles.text1}>NEXT</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.decisionButton2}>
+            <Text style={styles.text2}>ASK THIS EXPERT</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -210,12 +245,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 2,
     borderColor: "#E8E8E8",
-    justifyContent: "center",
     backgroundColor: "white",
-    height: 350,
-    width: 250,
+    height: 370,
+    width: 280,
     alignSelf: "center",
-    bottom: 40
+    bottom: 60,
+    flexDirection: "column"
   },
   text: {
     textAlign: "center",
@@ -230,8 +265,9 @@ const styles = StyleSheet.create({
   },
   decisions: {
     flex: 1,
-    backgroundColor: "grey",
-    top: 100
+    justifyContent: "space-around",
+    alignItems: "center",
+    flexDirection: "row"
   },
   cancel: {
     fontSize: 17,
@@ -239,5 +275,59 @@ const styles = StyleSheet.create({
   },
   swiper: {
     backgroundColor: "grey"
+  },
+  decisionButton1: {
+    width: 170,
+    height: 50,
+    borderRadius: 20,
+    borderColor: "#00267d",
+    borderWidth: 1,
+    color: "#00267d",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  decisionButton2: {
+    backgroundColor: "#00267d",
+    width: 170,
+    height: 50,
+    borderRadius: 20,
+    borderColor: "#00267d",
+    borderWidth: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  text1: {
+    color: "#00267d",
+    fontWeight: "400",
+    fontSize: 18
+  },
+  text2: {
+    color: "white",
+    fontWeight: "400",
+    fontSize: 18
+  },
+  avatar: {
+    backgroundColor: "pink",
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  onlineWr: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 5
+  },
+  onlineStatus: {
+    color: "#50da68",
+    fontSize: 10
+  },
+  profileWr: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    paddingTop: 20
   }
 });
