@@ -40,7 +40,11 @@ export default class App extends React.Component {
         // We include SpaceMono because we use it in HomeScreen.js. Feel free
         // to remove this if you are not using it in your app
         montserrat: require("./assets/fonts/Montserrat-Regular.otf"),
+        "montserrat-semibold": require("./assets/fonts/Montserrat-SemiBold.otf"),
         avenir: require("./assets/fonts/Avenir.otf"),
+        nunito: require("./assets/fonts/Nunito-Regular.ttf"),
+        "nunito-medium": require("./assets/fonts/Nunito-Medium.ttf"),
+        "nunito-light": require("./assets/fonts/Nunito-Light.ttf"),
         MaterialIcons
       })
     ]);

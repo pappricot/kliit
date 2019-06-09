@@ -13,6 +13,7 @@ import Settings from "../screens/accounts-screen/Settings";
 import Payment from "../screens/accounts-screen/Payment";
 import Legal from "../screens/accounts-screen/Legal";
 import ChooseExpert from "../screens/ChooseExpert";
+import Chat from "../screens/Chat";
 
 const AccountStack = createStackNavigator({
   Account: AccountScreen,
@@ -40,7 +41,8 @@ AccountStack.navigationOptions = {
 const AskStack = createStackNavigator(
   {
     Ask: AskScreen,
-    ChooseExpert
+    ChooseExpert,
+    Chat
   },
   {
     headerMode: "none",

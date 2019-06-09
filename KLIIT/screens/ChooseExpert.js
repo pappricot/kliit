@@ -39,34 +39,36 @@ export default class ChooseExpert extends React.Component {
         {/* <Text style={styles.text}>
           {card} - {index}
         </Text> */}
-        <View style={styles.onlineWr}>
-          <Image
-            style={styles.online}
-            source={require("../assets/images/online.png")}
-          />
-          <Text style={styles.onlineStatus}> Online Now</Text>
-        </View>
-        <View style={styles.profileWr}>
-          <View style={styles.avatar}>
-            <Text> Image </Text>
+        <View style={{ paddingLeft: 15, paddingHorizontal: 15 }}>
+          <View style={styles.onlineWr}>
+            <Image
+              style={styles.online}
+              source={require("../assets/images/online.png")}
+            />
+            <Text style={styles.onlineStatus}> Online Now</Text>
           </View>
-          <View>
-            <Text>Kim Jacobs</Text>
-            <Text>Registered Nurse</Text>
-            <Text> Stars</Text>
+          <View style={styles.profileWr}>
+            <View style={styles.avatar}>
+              <Text> Image </Text>
+            </View>
+            <View>
+              <Text style={styles.name}>Kim Jacobs</Text>
+              <Text style={styles.title}>Registered Nurse</Text>
+              <Text style={styles.title}> Stars</Text>
+            </View>
           </View>
-        </View>
-        <View>
-          <Text>
-            Kim has 10 years of experience in women's healthcare. She graduated
-            from UCF College of Nursing
-          </Text>
-        </View>
-        <View>
-          <Text>Specialties</Text>
-          <View>
-            <Text>Period</Text>
-            <Text>Pregnancy</Text>
+          <View style={styles.description}>
+            <Text style={styles.descriptionTxt}>
+              Kim has 10 years of experience in women's healthcare. She
+              graduated from UCF College of Nursing
+            </Text>
+          </View>
+          <View style={styles.specialtiesWr}>
+            <Text style={styles.specialtiesHeader}>Specialties</Text>
+            <View style={styles.specList}>
+              <Text style={styles.spec}>Period</Text>
+              <Text style={styles.spec}>Pregnancy</Text>
+            </View>
           </View>
         </View>
       </View>
@@ -202,11 +204,14 @@ export default class ChooseExpert extends React.Component {
           </Swiper>
         </View>
         <View style={styles.decisions}>
-          <TouchableOpacity style={styles.decisionButton1}>
+          {/* <TouchableOpacity style={styles.decisionButton1}>
             <Text style={styles.text1}>NEXT</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.decisionButton2}>
-            <Text style={styles.text2}>ASK THIS EXPERT</Text>
+          </TouchableOpacity> */}
+          <TouchableOpacity
+            style={styles.decisionButton1}
+            onPress={() => this.props.navigation.navigate("Chat")}
+          >
+            <Text style={styles.text1}>ASK THIS EXPERT</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -329,5 +334,41 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     paddingTop: 20
+  },
+  description: {
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 20
+  },
+  descriptionTxt: {
+    fontFamily: "nunito-light",
+    fontSize: 14
+  },
+  name: {
+    fontFamily: "montserrat-semibold",
+    fontSize: 20
+  },
+  title: {
+    fontFamily: "nunito-light",
+    fontSize: 12,
+    paddingTop: 4
+  },
+  specialtiesWr: {
+    justifyContent: "flex-start",
+    paddingTop: 20,
+    paddingLeft: 5
+  },
+  specialtiesHeader: {
+    fontFamily: "montserrat-semibold",
+    fontSize: 16
+  },
+  specList: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    paddingTop: 20
+  },
+  spec: {
+    fontFamily: "nunito",
+    paddingRight: 20
   }
 });

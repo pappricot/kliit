@@ -6,7 +6,8 @@ import {
   Text,
   TextInput,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
 import { QuestionInput } from "../screens/ask-screens/Input";
 
@@ -87,21 +88,21 @@ export default class AskScreen extends React.Component {
             <ScrollView horizontal style={styles.scrollExpert}>
               <View style={styles.expertWr}>
                 <View style={styles.avatar}>
-                  <Text> Image </Text>
+                  <Image source={require("../assets/images/oval1.png")} />
                 </View>
                 <Text style={styles.expert}>Name Last Name</Text>
                 <Text style={styles.expert2}>RN</Text>
               </View>
               <View style={styles.expertWr}>
                 <View style={styles.avatar}>
-                  <Text> Image </Text>
+                  <Image source={require("../assets/images/oval2.png")} />
                 </View>
                 <Text style={styles.expert}>Name Last Name</Text>
                 <Text style={styles.expert2}>RN</Text>
               </View>
               <View style={styles.expertWr}>
                 <View style={styles.avatar}>
-                  <Text> Image </Text>
+                  <Image source={require("../assets/images/oval3.png")} />
                 </View>
                 <Text style={styles.expert}>Name Last Name</Text>
                 <Text style={styles.expert2}>RN</Text>
@@ -213,7 +214,6 @@ const styles = StyleSheet.create({
     fontFamily: "avenir"
   },
   avatar: {
-    backgroundColor: "pink",
     width: 100,
     height: 100,
     borderRadius: 50,

@@ -32,7 +32,12 @@ export default class AccountScreen extends React.Component {
             <Text style={styles.headerText}>Adams</Text>
           </View>
           <View style={styles.imageStyle}>
-            <View style={styles.innerImageStyle} />
+            <View style={styles.innerImageStyle}>
+              <Image
+                style={styles.avatarImage}
+                source={require("../assets/images/oval.png")}
+              />
+            </View>
           </View>
         </View>
         {/* Body */}
@@ -158,7 +163,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: 30
+    marginLeft: 20
   },
   optionWrapper: {
     flex: 1,
@@ -221,5 +226,6 @@ const styles = StyleSheet.create({
   optionTxt: {
     fontFamily: "avenir",
     fontSize: 18
-  }
+  },
+  avatarImage: { width: 80, height: 80 }
 });
