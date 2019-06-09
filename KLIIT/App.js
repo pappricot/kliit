@@ -4,6 +4,9 @@ import { AppLoading, Asset, Font, Icon } from "expo";
 import MaterialIcons from "./node_modules/@expo/vector-icons/fonts/MaterialIcons.ttf";
 import AppNavigator from "./navigation/AppNavigator";
 
+import { Provider } from "react-redux";
+import store from "./redux/store";
+
 export default class App extends React.Component {
   state = {
     isLoadingComplete: false
@@ -12,11 +15,13 @@ export default class App extends React.Component {
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
-        <AppLoading
-          startAsync={this._loadResourcesAsync}
-          onError={this._handleLoadingError}
-          onFinish={this._handleFinishLoading}
-        />
+        <Provider store={store}>
+          <AppLoading
+            startAsync={this._loadResourcesAsync}
+            onError={this._handleLoadingError}
+            onFinish={this._handleFinishLoading}
+          />
+        </Provider>
       );
     } else {
       return (
